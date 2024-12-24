@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eacfc74-868c-4e22-84c8-c7d0c08bc9ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ole_spider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ole_demand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +44,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Development\Python\ole_spider" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="conda " />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="ole_demand" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -99,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735026685580</updated>
       <workItem from="1735026686760" duration="282000" />
-      <workItem from="1735026982967" duration="12130000" />
+      <workItem from="1735026982967" duration="15681000" />
     </task>
     <servers />
   </component>
