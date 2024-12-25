@@ -1,7 +1,7 @@
 # 爬取欧乐影院视频资源
 根据用户输入的影视剧名搜寻资源并选择相应视频资源进行下载。
 
-采用 协程 + 多进程 开发。
+采用 协程 + 多线程 开发。
 
 ## 环境配置
 ![Python Version](https://img.shields.io/badge/Python-3.12%2B-blue.svg)
@@ -16,11 +16,11 @@
 2. 运行以下命令来创建环境：
     ```bash
    conda env create -f environment.yml
-    ```
+   ```
 3. 激活环境：
     ```bash
    conda activate <env_name>
-    ```
+   ```
 
 ### 方式二：使用 Pip 环境
 
@@ -29,8 +29,16 @@
 2. 运行以下命令来安装所有依赖包：
     ```bash
    pip install -r requirements.txt
-    ```
+   ```
 
 ### 还需要额外安装 [FFmpeg](https://www.ffmpeg.org/download.html#build-windows) 用于视频合并以及格式转换
+
+> [!caution]
+>
+> 程序内置代理：`127.0.0.1:7897`
+>
+> 源码运行时根据情况自行调整。
+>
+> 如果下载使用 `exe` 文件运行，则需要自行设置代理为：`127.0.0.1:7897`
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)

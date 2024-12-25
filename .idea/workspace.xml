@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eacfc74-868c-4e22-84c8-c7d0c08bc9ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/icons/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ole_spider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ole_spider.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ole_demand.py" beforeDir="false" afterPath="$PROJECT_DIR$/ole_demand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +101,7 @@
       <workItem from="1735116727104" duration="47000" />
       <workItem from="1735135822318" duration="2502000" />
       <workItem from="1735138416830" duration="931000" />
-      <workItem from="1735139500083" duration="4412000" />
+      <workItem from="1735139500083" duration="5631000" />
     </task>
     <servers />
   </component>
