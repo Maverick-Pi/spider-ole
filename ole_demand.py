@@ -8,9 +8,10 @@
 -------------------------------------------------------------- """
 import asyncio
 import logging
+import os
 import shutil
 import subprocess
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import aiofiles
@@ -58,7 +59,7 @@ def get_output_dir(title_name: str):
     :param title_name: 路径变量
     :return: 存储路径对象
     """
-    return Path(f'./assets/{title_name}/')
+    return Path(f'./download_video/{title_name}/')
 
 
 def get_log_dir(title_name: str):
@@ -310,7 +311,7 @@ def merge_ts_mp4(folder_path: Path, tag: int):
     finally:
         # 删除临时文件
         clear_temp(folder_path)
-        print(f'\033[32m第{tag}集 临时文件清除完毕！\033[0m')
+        print(f'\033[32m第{str(tag).zfill(2)}集 临时文件清除完毕！\033[0m')
 
 
 def clear_temp(file_path: Path):
@@ -378,11 +379,12 @@ async def assign_tasks(tag: int, urls):
             await asyncio.gather(*tasks)
 
 
-async def process_episode(episode_url, executor: ProcessPoolExecutor):
+async def process_episode(episode_url, executor: ThreadPoolExecutor, title_name):
     """
     处理单集视频，包括解析、下载和合并
     :param episode_url: 单集视频 URL 地址
-    :param executor: ProcessPoolExecutor 实例
+    :param executor: ThreadPoolExecutor 实例
+    :param title_name: 标题
     :return: None
     """
     # 提取集数标识
@@ -392,27 +394,42 @@ async def process_episode(episode_url, executor: ProcessPoolExecutor):
     # 下载任务
     await assign_tasks(tag, segment_urls)
 
-    # 合并任务（交给进程池处理）
+    # 合并任务（交给线程池处理）
     loop = asyncio.get_running_loop()
-    output_dir = get_output_dir(title)
+    output_dir = get_output_dir(title_name)
     await loop.run_in_executor(executor, merge_ts_mp4, output_dir, tag)
 
 
+def check_ffmpeg():
+    """
+    检查用户环境，FFmpeg 的可用性检测
+    :return: None
+    """
+    if not shutil.which('ffmpeg'):
+        print('FFmpeg is not found! Please ensure it is installed and accessible.')
+        os.system('pause')
+        exit(1)
+
+
 def main():
+    # 检查 FFmpeg 可用性
+    check_ffmpeg()
     # 获取用户输入的完整的集数 url 列表
     episode_url_list = user_demand()
 
-    # 创建进程池（用于 CPU 密集型任务）
-    with ProcessPoolExecutor() as process_executor:
+    # 创建线程池
+    with ThreadPoolExecutor() as thread_executor:
         async def run_all():
             # 使用 asyncio.gather 并行处理多集视频
-            tasks = [process_episode(url, process_executor) for url in episode_url_list]
+            tasks = [process_episode(url, thread_executor, title) for url in episode_url_list]
             await asyncio.gather(*tasks)
 
         asyncio.run(run_all())
 
     # 清理日志文件
     clear_log_file(get_log_dir(title))
+    # 程序运行完后不立即关闭，而是等待用户操作
+    os.system('pause')
 
 
 if __name__ == '__main__':

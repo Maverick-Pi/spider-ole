@@ -1,2 +1,8 @@
-# 忽略 程序输入目录
-assets
+# 忽略 程序输出目录
+download_video
+
+ole_demand.spec
+
+build
+
+dist
